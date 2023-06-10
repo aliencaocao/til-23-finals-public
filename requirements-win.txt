@@ -20,7 +20,7 @@ denoiser==0.1.5
 exceptiongroup==1.0.4
 executing==1.2.0
 fastapi==0.95.1
-Flask==2.2.2
+Flask==2.2.5
 flatbuffers==22.11.23
 Flask-Cors==3.0.10
 fonttools==4.38.0
