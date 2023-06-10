@@ -37,7 +37,8 @@ setuptools.setup(
         'flask',
         'pynput >= 1.7.6',
         'rich >= 12.4.4',
-        'Flask-Cors >= 3.0.10'
+        'Flask-Cors >= 3.0.10',
+        'waitress'
     ],
     entry_points = {
         'console_scripts': [

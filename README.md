@@ -2,13 +2,13 @@
 
 SDK, simulator and documentation for TIL 2023 Robotics Challenge.
 
-* ``src/``: SDK and simulator packages. YOU DO NOT NEED TO MODIFY THESE.
-* ``config/``: sample configuration files for the scoring server, simulator and sample autonomy code. 
-  You might want to copy these.
-* ``data/``: sample audio and images for the AI tasks, sample maps used for.
-  the path planner and simulator. Feel free to use these data samples.
-* ``docs/``: documentation and Sphinx docs source. Build these with the instructions below to view API docs.
-* ``stubs/``: Code stubs for participants to implement. It is recommended to develop your custom codes in this directory.
+* ``src/``: SDK and simulator packages.
+* ``config/``: SDK and simulator sample configuration files.
+* ``data/``: sample audio and images for the AI tasks, sample maps used for
+the path planner and simulator.
+* ``docs/``: documentation and sphinx doc webpages source.
+* ``stubs/``: Code stubs for participants to implement.
+
 
 ## Setup
 **Step 1: Clone this git repo.**
@@ -17,36 +17,32 @@ It is highly recommended to install python dependencies in a virtual environment
 
 **Step 2: Activate virtual environment.**
 ```
-pip install virtualenv  # you do not need to run this line if you are down at our physical venue.
+pip install virtualenv
 virtualenv -p python3.8.10 venv  # create virtual python environment with specific python version.
 source <NAME_OF_VENV>/bin/activate  # on Windows, "./<NAME_OF_VENV>/Scripts/activate" to activate virtual python environment.
 ```
 
 **Step 3: Install the [RoboMaster SDK](https://robomaster-dev.readthedocs.io/en/latest/python_sdk/installs.html)**
-```sh
-pip install robomaster
-```
 
 Note that the required python version for the RoboMaster SDK is between 3.6.6 and 3.8.10
 
 **Step 4: Install the custom challenge SDK**
 ```sh
-pip install -r requirements.txt  # install third-party dependencies. use the provided requirements-win.txt if installing on Windows.
+pip install -r requirements.txt  # install third-party dependencies
 pip install .  # install the SDK from source. The '.' means install from current directory.
 ```
 
 **Step 5: Install a python GUI backend.**
 
-On Ubuntu, try this GUI backend:
+install a matplotlib backend to enable visualization of the simulation:
 ```
-sudo apt-get install python3-tk  # If you are at our venue you don't need to do this (it is already installed).
-```
-
-or if you're on Windows
-```
-pip install pyqt5
+pip install pyqt5  # probably works for Linux as well.
 ```
 
+If the above doesn't work and you're on Ubuntu, try this GUI backend:
+```
+sudo apt-get install python3-tk
+```
 
 **Step 6: (Optional) Install any other dependencies your custom AI models require.**
 
@@ -87,22 +83,8 @@ In another terminal, start your autonomy code:
 
 `python stubs/autonomy_starter.py --config config/autonomy_cfg.yml`
 
-Note: REMEMBER to CHANGE THE FILE/DIRECTORY PATHS in the config files (by default in the "config" folder) to your own directories. And to modify the config files as necessary.
-
-You are free not to use any of the provided stubs or code, except for the tilsdk's ReportingService and LocalizationService, which are mandatory for you to interact with our challenge servers.
+Note: Remember to change the paths in the config files to your own directories.
 
 You can always use the `--help` option with these commands to view help messages. E.g.
 
 `til-scoring --help`
-
-## Start developing
-
-To prevent your code from being overwritten by patches and code releases by the organizers, you should make your own copies of the config files in the `config/` directory. and also your own copy of the `stubs/autonomy_starter.py` if you intend on using the sample code.
-
-## Tips / Common Issues
-
-Make sure your source code points to all the correct file and directory paths.
-
-Ensure you are pointing your LocalizationService and ReportingService to the CORRECT IP addresses and port numbers where the servers are actually located.
-
-You are supposed to make various improvements to the autonomy code. You can think about improvements to the robot movements, the path-planning, or the usage of the path planner's output waypoints, or the management of noisy localization data, etc etc. 

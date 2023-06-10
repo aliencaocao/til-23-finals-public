@@ -17,6 +17,7 @@ import numpy as np
 from numpy.random import default_rng
 from matplotlib.colors import to_rgba
 from werkzeug.serving import WSGIRequestHandler
+from waitress import serve
 import shelve
 import zipfile
 
@@ -121,8 +122,7 @@ def get_camera():
 
 def start_server():
     global config
-    app.run(host=sim_config.host, port=sim_config.port)
-
+    serve(app, host=sim_config.host, port=sim_config.port, expose_tracebacks=True, threads=8)
 
 
 ##### Visualization #####

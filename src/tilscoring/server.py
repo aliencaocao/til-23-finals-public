@@ -14,6 +14,7 @@ from pathlib import Path
 import flask
 from flask_cors import CORS, cross_origin
 from werkzeug.serving import WSGIRequestHandler
+from waitress import serve
 
 from .types import *
 from .messenger import MessageAnnouncer
@@ -459,7 +460,7 @@ def main():
     with open(args.config, 'r') as f:
         config = yaml.safe_load(f)
 
-    app.run(args.host, args.port)
+    serve(app, host=args.host, port=args.port, expose_tracebacks=True, threads=8)
 
 if __name__ == '__main__':
     main()
