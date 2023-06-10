@@ -104,7 +104,7 @@ sortedcontainers==2.4.0
 sounddevice==0.4.5
 soundfile==0.11.0
 stack-data==0.6.2
-starlette==0.26.1
+starlette==0.27.0
 sympy==1.11.1
 termcolor==2.1.1
 thop==0.1.1.post2209072238
