@@ -1,4 +1,5 @@
 # til-final
+NOTE: This fork was modified to enable higher performance of simulator on Windows by replacing flask serve with waitress serve.
 
 SDK, simulator and documentation for TIL 2023 Robotics Challenge.
 
